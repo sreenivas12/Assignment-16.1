@@ -1,0 +1,36 @@
+package Spark
+
+object Main extends App{
+  
+   val ten :List[Int] = List(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+  def sum(xs: List[Int]): Double = {
+  xs match {
+    case x :: tail => x + sum(tail) // if there is an element, add it to the sum of the tail
+    case Nil => 0 // if there are no elements, then the sum is 0
+  }
+}
+  println("Sum of all the elements in the list: "+sum(ten))        // Sum of all the elements in the list
+  println(":::::::::::::::::::")
+val cnt:Double =  ten.count( x => true)              // total number of elements of the list
+println("total number of elements of the list: "+cnt)  
+ println(":::::::::::::::::::")
+def avg(x: List[Int], cnt:Double): Double ={
+    x match{
+    case x :: tail => (x + sum(tail))/cnt
+    case Nil => 0
+  }
+  }
+  var average : Double = avg(ten,cnt)    // average of numbers in the list
+  println("average of numbers in the list: "+average)
+   println(":::::::::::::::::::")
+var even = ten.filter{p => p%2 == 0 }
+  println("Even numbers in the list: "+even)
+   println(":::::::::::::::::::")
+ println("sum of all the even numbers in the list: "+sum(even))    //sum of all the even numbers in the list
+  println(":::::::::::::::::::")
+ var div = ten.filter{p => p%3 == 0 && p%5 ==0 }  //total number of elements in the list divisible by both 5 and 3
+
+  var cnt2 = println("total number of elements in the list divisible by both 5 and 3 is: "+div.count(x => true))  
+
+ }
